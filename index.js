@@ -28,9 +28,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //Router
 const routerUserApi = require("./routes/auth.route");
+const routerPostApi = require("./routes/post.route");
 
 app.get("/", (req, res) => res.send("Hello, I'am Dog! This is API for app instagram use React"));
 
 app.use("/", routerUserApi);
+
+app.use("/post", routerPostApi);
 
 app.listen(port, () => console.log(`Server listening on port ${port}`));
