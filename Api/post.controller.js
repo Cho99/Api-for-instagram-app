@@ -26,7 +26,7 @@ const addHeart = async function(req, res) {
         console.log(user_heart);
         await post.save();
     } else {
-        await Post.findByIdAndUpdate({ id : postId }, {
+        await Post.findOneAndUpdate({ id : postId }, {
             $push: { hearts : { heartByUserId, quantity : 1 } }
         });
     }
