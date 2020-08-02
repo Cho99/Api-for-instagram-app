@@ -5,18 +5,21 @@ const postSchema = new mongoose.Schema({
     authorid: String,
     contentPost: String,
     imagePost: String,
-    hearts: [
-        {
-            heartByUserId: String,
-            quantity: Number,
-        }
-    ],
+    hearts: [{
+        heartByUserId: {
+          type: String,
+          ref: "User"
+        },
+        quantity: Number
+    }],
     comments: [
         {
-            commentByUseriId: String,
-            contentComment: String,
-        }
-    ]
+        commentByUserId: {
+          type: String,
+          ref: "User"
+        },
+        contentComment: String
+    }],
 });
 
 var Post = mongoose.model("Post", postSchema, "posts");
