@@ -27,7 +27,7 @@ const postAp = async function(req, res) {
     const path = await cloudinary.uploader
       .upload(file)
       .then(result => result.url)
-      .catch(error => console.log("erro:::>", error));
+      .catch(error => console.log("error:::>", error));
     Post.create({
       id:shorid.generate(),
       authorid:user.id,
