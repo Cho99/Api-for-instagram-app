@@ -9,9 +9,9 @@ const port = process.env.PORT || 4000;
 
 const mongoose = require("mongoose");
 mongoose
-  .connect("mongodb+srv://Dog:123456a@cluster0.z7j2c.gcp.mongodb.net/instag?retryWrites=true&w=majority", {
+  .connect("mongodb+srv://Dog:123456a@cluster0.z7j2c.gcp.mongodb.net/instag?retryWrites=true&w=majority", 
     {useNewUrlParser: true , useUnifiedTopology: true}
-  })
+  )
   .then(() => console.log("DB Connected!"))
   .catch((err) => {
     console.log(`DB Connection Error: ${err.message}`);
