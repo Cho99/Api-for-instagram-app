@@ -10,9 +10,7 @@ const port = process.env.PORT || 4000;
 const mongoose = require("mongoose");
 mongoose
   .connect("mongodb+srv://Dog:123456a@cluster0.z7j2c.gcp.mongodb.net/instag?retryWrites=true&w=majority", {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useFindAndModify: false,
+    {useNewUrlParser: true , useUnifiedTopology: true}
   })
   .then(() => console.log("DB Connected!"))
   .catch((err) => {
