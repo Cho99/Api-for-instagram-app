@@ -1,4 +1,6 @@
 var express = require("express");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 var cors = require("cors");
 const app = express();
 app.use(cors());
@@ -16,14 +18,11 @@ mongoose
   .catch((err) => {
     console.log(`DB Connection Error: ${err.message}`);
   });
-
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-app.use(express.static("public"));
-app.use(express.static("files"));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(cookieParser("123"));
+app.use(express.static("public"));
+app.use(express.static("files"));
 //Router
 const routerUserApi = require("./routes/auth.route");
 const routerPostApi = require("./routes/post.route");
